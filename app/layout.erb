@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <title>RhomobileLungoJsSample</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+
+    <% if Rho::System.getProperty('platform') == 'APPLE' || Rho::System.getProperty('platform') == 'ANDROID' ||
+        ( Rho::System.getProperty('platform') != 'WINDOWS' && Rho::System.getProperty('webviewFramework') =~ /^WEBKIT/) %>
+        <script src="/public/api/rhoapi-modules.js" type="text/javascript"></script>
+
+        <!-- // <script src="/public/jquery/jquery-1.9.1.min.js" type="text/javascript"></script> -->
+        <link rel="stylesheet" href="/public/css/lungo.css">
+        <link rel="stylesheet" href="/public/css/lungo.icon.css">
+        <link rel="stylesheet" href="/public/css/lungo.theme.css">
+        <script src="/public/js/quo.js"></script>
+        <script src="/public/js/lungo.js"></script>
+    <% end %>
+
+    <% if Rho::System.getProperty('platform') == 'APPLE' %>
+        <link href="/public/css/iphone.css" type="text/css" rel="stylesheet"/>
+    <% elsif Rho::System.getProperty('platform') == 'ANDROID' %>
+        <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
+    <% elsif Rho::System.getProperty('webviewFramework') =~ /^WEBKIT/ %>
+        <link href="/public/css/re_webkit.css" type="text/css" rel="stylesheet"/>
+    <% elsif Rho::System.getProperty('platform') == 'WINDOWS' %>
+	    <link href="/public/css/windows_mobile.css" type="text/css" rel="stylesheet"/>
+    <% end %>
+
+</head>
+
+<body data-platform="<%= Rho::System.getProperty('platform') %>">
+<script>
+        Lungo.init({
+            name: 'Rhomobile',
+            version: '1.0',
+            resources: ['/public/app/index.html'],
+            history: false
+        });
+</script>
+</body>
+</html>

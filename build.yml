@@ -1,0 +1,24 @@
+#sdk: "D:/MotorolaRhoMobileSuite4.0.0.beta.15/ruby/lib/ruby/gems/1.9.1/gems/rhodes-4.0.0"
+sdkversion: 4.0.0
+name: rhomobile-lungo-js-sample
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 6.0
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator6.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.rhomobile-lungo-js-sample
+  BundleURLScheme: rhomobile-lungo-js-sample
+wp:
+  productid: '8cd11560-0caa-0131-3172-5eac4c896530'
+symbian:
+  uid: '0xe3fd73f7'
+android:
+  version: 2.3.3
+
+extensions: ["rhoconnect-client"]
