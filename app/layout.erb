@@ -12,12 +12,11 @@
         ( Rho::System.getProperty('platform') != 'WINDOWS' && Rho::System.getProperty('webviewFramework') =~ /^WEBKIT/) %>
         <script src="/public/api/rhoapi-modules.js" type="text/javascript"></script>
 
-        <!-- // <script src="/public/jquery/jquery-1.9.1.min.js" type="text/javascript"></script> -->
+        <script src="/public/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="/public/css/lungo.css">
         <link rel="stylesheet" href="/public/css/lungo.icon.css">
         <link rel="stylesheet" href="/public/css/lungo.theme.css">
-        <script src="/public/js/quo.js"></script>
-        <script src="/public/js/lungo.js"></script>
+       
     <% end %>
 
     <% if Rho::System.getProperty('platform') == 'APPLE' %>
@@ -29,17 +28,28 @@
     <% elsif Rho::System.getProperty('platform') == 'WINDOWS' %>
 	    <link href="/public/css/windows_mobile.css" type="text/css" rel="stylesheet"/>
     <% end %>
+    
 
 </head>
 
 <body data-platform="<%= Rho::System.getProperty('platform') %>">
+<script src="/public/js/quo.js"></script>
+<script src="/public/js/lungo.js"></script>
+<script src="/public/js/application.js" type="text/javascript"></script>
+
 <script>
         Lungo.init({
             name: 'Rhomobile',
             version: '1.0',
-            resources: ['/public/app/index.html'],
+            resources: ['/public/app/sections/index.html','/public/static/asides/features.html'
+            // ,'/public/static/example.html'
+            ],
             history: false
         });
+        // Lungo.dom('#main').on('load', function(event){
+        //     alert("test")
+        //     refresh_view();
+        // });
 </script>
 </body>
 </html>
