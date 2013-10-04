@@ -54,27 +54,48 @@
 			console.log("-------------------------")
 			console.log(body_html)
 			console.log("------------------------")
-			// element = $("#product_list tr:first");
-			// element.before(body_html);
-			// refresh_view();
-			// Lungo.Router.section("main");
+			refresh_view()
 			Lungo.Router.back();
 		});
 	}
-		function refresh_view(){
-			alert("refresh_view")
+
+
+	function delete_product(id) {
+			// alert(id)
+			// console.log(id)
+			create_model();
+			var model = get_model();
+			console.log(model)
+			var product = model.find("first", {
+				conditions: { "object": id }
+			});
+		console.log(product)
+		product.destroy();
+	}
+
+	function refresh_view(){
+			// alert("refresh_view")
 			create_model();
 			var model = get_model();
 			var products = model.find("all");
+			// alert(products)
 			var body_html = "";
 			for (var i = (products.length - 1); i >= 0; i--) {
-				// console.log(i)
-				// console.log(products[0])
 				var product = products[i];
-				var row_html = "<tr class="+product.get("object")+"><td> Name : " + product.get("name") + "</td></tr><br/>"+"<tr class="+product.get("object")+"><td> Brand : " + product.get("brand") + "</td></tr><br/>"+"<tr class="+product.get("object")+"> <td>Price : " + product.get("price") + "</td></tr>"+"<tr class="+product.get("object")+"><td><a href='#' data-role='button' class='delete_product' data-product-id='"+product.get("object")+"'>Delete</a><hr></td></tr>";
-
+				var row_html = "<li><a href='#'></a><a href='#' class='button default red on-right delete_product' data-label='button' data-product-id='"+product.get("object")+"' style='color:#fff;'>Delete</a><strong>"+product.get("name")+"</strong></li>"
 				body_html += row_html;
+
 			}
-		// alert(body_html)
-		$("#product_list").html(body_html).trigger("create");
+			// alert(body_html)
+		if (body_html != ""){
+			$("#product_list").html(body_html).trigger("create");
+		}else{
+			$("#product_list").html("<li>Please Create Product</li>")
+		}
 	}
+	
+	$(document).on("click", ".delete_product", function() {
+			var id = $(this).data("product-id").toString();
+			delete_product(id);
+			refresh_view();
+	});
