@@ -54,7 +54,7 @@
 			console.log("-------------------------")
 			console.log(body_html)
 			console.log("------------------------")
-			refresh_view()
+			Lungo.Core.execute(refresh_view);
 			Lungo.Router.back();
 		});
 	}
@@ -82,7 +82,7 @@
 			var body_html = "";
 			for (var i = (products.length - 1); i >= 0; i--) {
 				var product = products[i];
-				var row_html = "<li><a href='#'></a><a href='#' class='button default red on-right delete_product' data-label='button' data-product-id='"+product.get("object")+"' style='color:#fff;'>Delete</a><strong>"+product.get("name")+"</strong></li>"
+				var row_html = "<li><a href='#' class='button default red on-right delete_product' data-label='button' data-product-id='"+product.get("object")+"' style='color:#fff;'>Delete</a><strong>"+product.get("name")+"</strong></li>"
 				body_html += row_html;
 
 			}
