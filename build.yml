@@ -2,18 +2,17 @@
 sdkversion: 4.0.0
 name: rhomobile-lungo-js-sample
 version: 1.0
-vendor: rhomobile
-build: debug
+vendor: spritle
 bbver: 6.0
 applog: rholog.txt
 iphone:
   configuration: Release
-  sdk: iphonesimulator6.0
+  sdk: iphonesimulator6.1
   provisionprofile:
   codesignidentity:
   entitlements:
-  BundleIdentifier: com.rhomobile.rhomobile-lungo-js-sample
-  BundleURLScheme: rhomobile-lungo-js-sample
+  BundleIdentifier: com.spritle.rhomobile-lungo-js-sample
+  BundleURLScheme: spritle-lungo-js-sample
 wp:
   productid: '8cd11560-0caa-0131-3172-5eac4c896530'
 symbian:
@@ -21,4 +20,3 @@ symbian:
 android:
   version: 2.3.3
 
-extensions: ["rhoconnect-client"]
