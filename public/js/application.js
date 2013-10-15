@@ -90,7 +90,7 @@
 		if (body_html != ""){
 			$("#product_list").html(body_html).trigger("create");
 		}else{
-			$("#product_list").html("<li>Please Create Product</li>")
+			$("#product_list").html("<li>Track your Assets</li>")
 		}
 	}
 	
